@@ -173,9 +173,9 @@ const styles = `
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     padding: 0;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.2s ease-out,
-                border-color 0.2s ease-out;
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.1s ease-out,
+                border-color 0.1s ease-out;
     position: relative;
     overflow: hidden;
     box-shadow: 
@@ -200,45 +200,56 @@ const styles = `
       rgba(0, 255, 170, 0.05) 100%
     );
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.1s ease;
     pointer-events: none;
   }
   
   .projects li:hover {
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
     border-color: rgba(0, 212, 255, 0.3);
     box-shadow: 
       0 20px 40px rgba(0, 212, 255, 0.15),
       0 10px 20px rgba(0, 0, 0, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    transition: transform 0s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
   .projects li:hover::before {
     opacity: 1;
+    transition: opacity 0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
   .projects li:hover h3 {
     color: #00ffaa;
+    text-shadow: 
+      0 0 18px rgba(0, 255, 170, 0.4),
+      0 0 28px rgba(0, 255, 170, 0.25),
+      0 0 35px rgba(0, 212, 255, 0.15);
+    transition: color 0s cubic-bezier(0.16, 1, 0.3, 1),
+                text-shadow 0s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .projects h3 {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
+    color: #555;
+    text-shadow: 
+      0 0 0 rgba(255, 255, 255, 0.15),
+      0 1px 0 rgba(0, 0, 0, 0.4);
+    transition: color 0.15s ease-out,
+                text-shadow 0.1s ease-out;
   }
   
   .projects a {
     display: block;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     text-decoration: none;
     color: inherit;
     position: relative;
     z-index: 1;
-  }
-  
-  .projects h3 {
-    color: #d0d0d0;
-    transition: color 0.2s ease;
   }
   
   .projects p {
@@ -257,6 +268,13 @@ const styles = `
   footer a {
     color: var(--accent);
     text-decoration: none;
+  }
+  
+  @media (hover: none) and (pointer: coarse) and (max-width: 1024px) {
+    .projects h3 {
+      color: #d0d0d0;
+      text-shadow: none;
+    }
   }
   
   @media (max-width: 768px) {
@@ -289,6 +307,8 @@ const styles = `
     
     .projects h3 {
       font-size: 1.25rem;
+      color: #d0d0d0;
+      text-shadow: none;
     }
     
     .projects p {
@@ -308,6 +328,8 @@ const styles = `
     
     .projects h3 {
       font-size: 1.1rem;
+      color: #d0d0d0;
+      text-shadow: none;
     }
     
     .projects p {
