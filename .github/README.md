@@ -12,6 +12,7 @@ Create a Cloudflare API token with the following settings:
 
 - Account: Workers Scripts : Edit
 - Zone: Zone : Read
+- Zone: Workers Routes : Edit
 
 #### Account Resources
 
