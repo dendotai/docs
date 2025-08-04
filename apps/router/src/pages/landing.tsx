@@ -356,7 +356,9 @@ const LandingPage = () => {
       <body>
         <div class="container">
           <header>
-            <h1>docs.den.ai</h1>
+            <a href="https://docs.den.ai" style="text-decoration: none;">
+              <h1>docs.den.ai</h1>
+            </a>
           </header>
 
           <main>
