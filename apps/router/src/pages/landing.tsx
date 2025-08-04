@@ -29,6 +29,10 @@ const styles = `
     overflow-x: hidden;
   }
   
+  html {
+    overflow-x: hidden;
+  }
+  
   body::before {
     content: "";
     position: absolute;
@@ -83,10 +87,12 @@ const styles = `
     flex: 1;
     position: relative;
     z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     text-align: center;
   }
   
@@ -153,7 +159,7 @@ const styles = `
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -254,17 +260,59 @@ const styles = `
   }
   
   @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-    }
-    
     .container {
       padding: 1rem;
+    }
+    
+    header {
+      margin-bottom: 1.5rem;
+      padding: 1rem 0;
+    }
+    
+    h1 {
+      font-size: 2rem;
     }
     
     .projects {
       grid-template-columns: 1fr;
       gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .projects li {
+      border-radius: 12px;
+    }
+    
+    .projects a {
+      padding: 1.5rem;
+    }
+    
+    .projects h3 {
+      font-size: 1.25rem;
+    }
+    
+    .projects p {
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+    
+    .projects h3 {
+      font-size: 1.1rem;
+    }
+    
+    .projects p {
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
   }
 `;
