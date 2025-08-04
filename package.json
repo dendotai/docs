@@ -1,0 +1,23 @@
+{
+  "name": "docs-den-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Documentation Router System for docs.den.ai",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "deploy": "bun run deploy:router",
+    "deploy:router": "bun run --filter @docs/router deploy",
+    "typecheck": "bun run --filter '*' typecheck",
+    "clean": "rm -rf packages/*/dist packages/*/.turbo"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "bun@1.1.43"
+}

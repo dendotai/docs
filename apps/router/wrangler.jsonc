@@ -1,0 +1,50 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "docs-router",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Route configuration - matches Cloudflare dashboard setup
+  "routes": [
+    {
+      "pattern": "docs.den.ai/*",
+      "zone_name": "den.ai"
+    }
+  ],
+
+  // Service bindings for documentation workers
+  // Each documentation worker should be deployed WITHOUT routes (private worker)
+  // The service name must match the deployed worker name exactly
+  "services": [
+    {
+      "binding": "MUXA_DOCS",
+      "service": "muxa-docs"
+    }
+    // Add more documentation workers here:
+    // {
+    //   "binding": "DENAI_DOCS",
+    //   "service": "denai-docs"
+    // },
+    // {
+    //   "binding": "MYPROJECT_DOCS",
+    //   "service": "myproject-docs"
+    // }
+  ]
+
+  // How this works:
+  // 1. Documentation workers are deployed WITHOUT public routes (private workers)
+  // 2. Router uses service bindings for internal communication (faster & more secure)
+  // 3. Router forwards the FULL path to documentation workers
+  //
+  // Request flow example:
+  // - User requests: docs.den.ai/muxa/getting-started
+  // - Router forwards: /muxa/getting-started (full path preserved)
+  // - Documentation worker handles with basePath: '/muxa' configured
+  //
+  // To add a new documentation project:
+  // 1. Deploy the docs worker: wrangler deploy --name projectname-docs
+  // 2. Add service binding above
+  // 3. Add to env.ts: PROJECTNAME_DOCS: Fetcher;
+  // 4. Add to projects.ts configuration (no URL needed)
+}
