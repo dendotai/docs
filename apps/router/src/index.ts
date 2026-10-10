@@ -1,8 +1,7 @@
 /**
  * Documentation Router for docs.den.ai
  *
- * This worker serves as the main entry point for all documentation hosted under docs.den.ai.
- * It uses Cloudflare Service Bindings to route requests to private documentation workers.
+ * This worker serves as the main entry point for all documentation hosted under docs.den.ai. It uses Cloudflare Service Bindings to route requests to private documentation workers.
  *
  * Architecture:
  * - Public router at docs.den.ai
